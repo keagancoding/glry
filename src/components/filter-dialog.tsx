@@ -9,7 +9,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { CheckSquare, Filter, Tag } from "lucide-react";
-import { filterTags } from "@/config";
+import filterTags from "@/data/tags.json";
 
 import { useState } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
@@ -42,7 +42,7 @@ export function FilterDialog() {
     <Dialog>
       <DialogTrigger asChild>
         <Button>
-          <Filter />
+          <Filter className="h-5 w-5"/>
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
@@ -50,7 +50,7 @@ export function FilterDialog() {
           <DialogTitle>Select Filters</DialogTitle>
         </DialogHeader>
         <div className="flex flex-wrap gap-2">
-          {filterTags.map((tag, idx) => (
+          {filterTags.tags.map((tag, idx) => (
             <Button
               onClick={() => handleTagClick(tag)}
               className="flex gap-2 items-center grow"

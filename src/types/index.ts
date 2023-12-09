@@ -4,6 +4,5 @@ export type NavItem = {
 };
 export type ImageType = {
   src: string;
-  href: string | undefined;
-  tags: string[] | undefined;
+  tags: string[];
 };

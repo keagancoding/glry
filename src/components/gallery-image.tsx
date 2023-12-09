@@ -2,9 +2,15 @@ import { ImageType } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function GalleryImage({ image }: { image: ImageType }) {
+export default function GalleryImage({
+  image,
+  tags,
+}: {
+  image: ImageType;
+  tags: string[] | null;
+}) {
   return (
-    <Link href={image?.href ?? ""}>
+    <Link href={`/p${image.src}${tags ? `?tags=${tags.join(",")}` : ''}`}>
       <Image
         src={image.src}
         alt=""
